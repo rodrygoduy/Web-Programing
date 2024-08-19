@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id ='title'>Bài Tập Dom 1</div>
+    <div id ="text">Bai tap dom so 2</div>
+    <ul id ='list'>
+        <li>Bai tap dom so 3</li>
+        <li>Haha</li>
+    </ul>
+    <div id ="remove-me">Bai tap dom so 4</div>
+    <img id ="image" src="Baitapdomso5.png">
+    <button id="btn">Bai tap dom so 6 </button>
+    <p>Bai tap dom so 7</p>
+    <p>Bai tap dom so 7 p2</p>
+
+    <div id = "table-container"></div>
+
+    <div class = "item">Bai tap dom so 10</div>
+    <div class = "item">Bai tap dom so 10</div>
+    <div class = "item">Bai tap dom so 10</div>
+
+
+
+
+<script>
+    document.getElementById('title').textContent="Hello,DOM!";
+    document.getElementById("text").style.color="red";
+    var newLi = document.createElement("li");
+    newLi.textContent= "Bai tap dom so 3 new";
+    document.getElementById("list").appendChild(newLi);
+    var removez = document.getElementById('remove-me');
+    removez.parentNode.removeChild;
+    document.getElementById("image").src = "nguyenduy.png";
+    document.getElementById("btn").addEventListener('click',function(){alert('Đã hoàn thành bài 6')})
+    document.querySelectorAll("p").forEach(function(x){
+        x.textContent= "Updated paragraph";
+    });
+    const soDong = 3;
+    const soCot =3;
+    let tablex ='<table border="1">';
+    for (let i=0;i<soDong;i++){
+        tablex += '<tr>';
+        for (let j=0;j<soCot;j++){
+            tablex += '<td></td>'
+        }
+        tablex +='</tr>';
+    }tablex += '</table>'
+    const tableContainer = document.getElementById('table-container');
+    tableContainer.innerHTML =tablex;
+
+    var divs = document.getElementsByTagName("div");
+    var soDiv = divs.length;
+    alert("So div co trong bai la :"+ soDiv);
+
+    var items = document.getElementsByClassName("item");
+    for(let z = 0; z<items.length;z++){
+        items[z].textContent="Update item"
+    }
+</script>
+</body>
+</html>
